@@ -1,5 +1,15 @@
-const url = 'https://data.opendevelopmentcambodia.net/en/api/3/action/datastore_search';
-const resourceId = '50d26fc8-e451-4486-9252-6cdf09a34fea';
+let url;
+let resourceId;
+
+if (document.documentElement.lang == 'en') {
+  url = 'https://data.opendevelopmentcambodia.net/en/api/3/action/datastore_search';
+  resourceId = '50d26fc8-e451-4486-9252-6cdf09a34fea';
+} else {
+  url = 'https://data.opendevelopmentcambodia.net/km/api/3/action/datastore_search';
+  resourceId = '2515b02f-3e0e-48af-8d58-219cc97a5b0b';
+}
+
+
 const limit = 500;
 
 const datasetUrl = url + '?resource_id=' + resourceId + '&limit=' + limit;
@@ -28,9 +38,9 @@ try {
         // investment          : d3.format(',.2r')(record.cap_inv),
         investment_mm       : record.cap_inv_m,
         investment          : record.cap_inv,
-        nationality         : (!record.nat_pro) ? 'Not found' : record.nat_pro,
+        nationality         : (!record.nat_pro) ? 'មិនស្គាល់' : record.nat_pro,
         job_creation        : record.job_creat,
-        year_start          : record.sta_oper,
+        year_start          : (!record.sta_oper) ? 'មិនស្គាល់' : record.sta_oper,
         province            : record.pro_loc,
         data_classification : record.data_c,
         reference           : record.reference,
@@ -119,10 +129,10 @@ try {
       .filterByArea(true)
       .cluster(true)
       .popup(d => {
-        return '<p>Developer: <a target="_blank" href="' + d.value.project_url + '">' + d.value.developer + '</a></p>' +
-              '<p>Capital Investment: <strong>USD ' + d.value.investment_mm + ' million</strong></p>' +
-              '<p>Development project: <strong>' + d.value.project_type + '</strong></p>' +
-              '<p>Sector: <strong>' + d.value.sector + '</strong></p>';
+        return '<p>ឈ្មោះអ្នកអភិវឌ្ឍ៖ <a target="_blank" href="' + d.value.project_url + '">' + d.value.developer + '</a></p>' +
+              '<p>ទុនវិនិយោគ៖ <strong>' + d.value.investment_mm + ' លានដុល្លា</strong></p>' +
+              '<p>គម្រោងអភិវឌ្ឍន៍៖ <strong>' + d.value.project_type + '</strong></p>' +
+              '<p>វិស័យ៖ <strong>' + d.value.sector + '</strong></p>';
       })
       .clusterOptions({
         spiderfyOnMaxZoom: true,
@@ -191,23 +201,23 @@ try {
 
     const columns = [
       {
-        title : 'Development Project',
+        title : (document.documentElement.lang == 'en') ? 'Development project' : 'គម្រោងអភិវឌ្ឍន៍',
         data  : d => d.project_type
       },
       {
-        title : 'Project Developer',
+        title : (document.documentElement.lang == 'en') ? 'Project developer' : 'ឈ្មោះអ្នកអភិវឌ្ឍន៍',
         data  : d => d.developer,
       },
       {
-        title : 'Nationality of Project',
+        title : (document.documentElement.lang == 'en') ? 'Nationality of project' : 'ប្រទេសអភិវឌ្ឍគម្រោង',
         data  : d => d.nationality,
       },
       {
-        title : 'Capital Investment (Million USD)',
+        title : (document.documentElement.lang == 'en') ? 'Capital investment (millions USD)' : 'ទុនវិនិយោគ (លានដុល្លា)',
         data  : d => d.investment_mm,
       },
       {
-        title : 'Started Year',
+        title : (document.documentElement.lang == 'en') ? 'Started year' : 'គម្រោងចាប់ផ្តើម',
         data  : d => d.year_start,
       }
     ]

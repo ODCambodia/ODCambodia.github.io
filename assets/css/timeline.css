@@ -16,10 +16,10 @@
 .point {
   min-width: 20px;
   height: 20px;
-  background-color: #be9fe1;
+  background-color: #e1d9ec;
   border-radius: 100%;
   z-index: 2;
-  /* border: 3px #333333 solid; */
+  border: 3px #be9fe1 solid;
   position: relative;
   left: 1px;
 }
@@ -80,8 +80,8 @@
   height: 98%;
   width: 3px;
   left: 50%;
-  background-color: #333333;
-  top: 4rem;
+  background-color: #be9fe1;
+  top: 8rem;
 }
 
 @media (max-width: 800px) {

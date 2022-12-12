@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <title>Dashboard | Foreign investment in Cambodia</title>
+    <title>បាណ្ណូបរិធាន | ការវិនិយោគបរទេសនៅក្នុងប្រទេសកម្ពុជា</title>
 
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="node_modules/leaflet/dist/leaflet.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/leaflet-minimap/dist/Control.MiniMap.min.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/leaflet.markercluster/dist/MarkerCluster.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet-minimap/dist/Control.MiniMap.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet.markercluster/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css">
 
-    <link rel="stylesheet" type="text/css" href="node_modules/dc/dist/style/dc.min.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/dc-tableview/build/dc-tableview-bs.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/dc/dist/style/dc.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/dc-tableview/build/dc-tableview-bs.css">
 
-    <link rel='stylesheet' type='text/css' href='assets/css/main.css'>
-    <link rel='stylesheet' type='text/css' href='assets/css/dashboard.css'>
+    <link rel='stylesheet' type='text/css' href='../assets/css/main.css'>
+    <link rel='stylesheet' type='text/css' href='../assets/css/dashboard.css'>
 </head>
 
 <body class="dashboard">
     <!-- Image and text -->
     <nav class="navbar navbar-dark navbar-expand-lg" style="background: #06323d;">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/km/index.html">
             <!-- <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
-            Foreign investment in Cambodia
+            ការវិនិយោគបរទេសនៅក្នុងប្រទេសកម្ពុជា
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,13 +37,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Dashboard<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#">បាណ្ណូបរិធាន<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/timeline/laws.html">Laws and regulations<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/km/timeline/laws.html">Laws and regulations<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/timeline/events.html">Events<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/km/timeline/events.html">Events<span class="sr-only">(current)</span></a>
                 </li>
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -67,7 +67,7 @@
                 <div class="chart-wrapper" style="width: 100%">
                     <div class="chart-stage">
                         <div class="dc-datatable-count">
-                            Selecting <span class="filter-count"></span> of <span class="total-count"></span> records
+                            បង្ហាញ <span class="filter-count"></span> ចេញពី <span class="total-count"></span> គម្រោង
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     <div class="chart-stage">
                         <div class="chart-title">
                             <span>
-                                <strong>Project location</strong>
+                                <strong>ទីតាំងគម្រោងវិនិយោគ</strong>
                             </span>
                             <span>
                                 <a class="reset" style="display:none" href="javascript:projectsByCoordinateMapChart.filterAll(); dc.redrawAll();">
@@ -102,7 +102,7 @@
                                 <div class="chart-title">
                                     <span>
                                         <strong>
-                                            Projects by province
+                                            គម្រោងវិនិយោគតាមខេត្ត
                                         </strong>
                                     </span>
                                     <span>
@@ -123,7 +123,7 @@
                                 <div class="chart-title">
                                     <span>
                                         <strong>
-                                            Investment by country (millions USD)
+                                            ទំហំវិនិយោគតាមប្រទេស (លានដុល្លា)
                                         </strong>
                                     </span>
                                     <div class="dc-chart" id="chart-ring-nationality"></div>
@@ -147,7 +147,7 @@
                                 <div class="chart-title">
                                     <span>
                                         <strong>
-                                            Projects by sector
+                                            គម្រោងវិនិយោគតាមវិស័យ
                                         </strong>
                                     </span>
                                     <span>
@@ -168,7 +168,7 @@
                                 <div class="chart-title">
                                     <span>
                                         <strong>
-                                            Investment by sector (millions USD)
+                                            ទំហំវិនិយោគតាមវិស័យ (លានដុល្លា)
                                         </strong>
                                     </span>
                                     <span>
@@ -190,31 +190,31 @@
         <div class="row">
             <!-- Data Table -->
             <div class="col-lg-12 px-1 pb-3" style="background-color: #fff;">
-                <p class="ml-3 mt-2"><strong>List of foriegn investment projects in Cambodia</strong></p>
+                <p class="ml-3 mt-2"><strong>បញ្ជីនៃគម្រោងវិនិយោគបរទេសនៅកម្ពុជា</strong></p>
                 <div id="fim-datatable"></div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script type="text/javascript" src="node_modules/leaflet/dist/leaflet.js"></script>
-    <script type="text/javascript" src="node_modules/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
-    <script type="text/javascript" src="node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
-    <script type="text/javascript" src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet/dist/leaflet.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
-    <script type="text/javascript" src="node_modules/d3/dist/d3.min.js"></script>
-    <script type="text/javascript" src="node_modules/crossfilter/crossfilter.min.js"></script>
-    <script type="text/javascript" src="node_modules/dc/dist/dc.min.js"></script>
-    <script type="text/javascript" src="node_modules/dc-tableview/build/dc-tableview-bs.js"></script>
+    <script type="text/javascript" src="../node_modules/d3/dist/d3.min.js"></script>
+    <script type="text/javascript" src="../node_modules/crossfilter/crossfilter.min.js"></script>
+    <script type="text/javascript" src="../node_modules/dc/dist/dc.min.js"></script>
+    <script type="text/javascript" src="../node_modules/dc-tableview/build/dc-tableview-bs.js"></script>
 
-    <script type="text/javascript" src="node_modules/dc.leaflet/dc.leaflet.min.js"></script>
-    <script type="text/javascript" src="node_modules/dc-addons/dist/bubble-cloud/dc-bubble-cloud.min.js"></script>
+    <script type="text/javascript" src="../node_modules/dc.leaflet/dc.leaflet.min.js"></script>
+    <script type="text/javascript" src="../node_modules/dc-addons/dist/bubble-cloud/dc-bubble-cloud.min.js"></script>
 
-    <script type="text/javascript" src="assets/js/map.js"></script>
-    <script type="text/javascript" src="assets/js/charts.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="../assets/js/map.js"></script>
+    <script type="text/javascript" src="../assets/js/charts.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
 </body>
 
 </html>

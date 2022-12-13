@@ -1,14 +1,16 @@
 let url;
 let resourceId;
+let unknown_text = '';
 
 if (document.documentElement.lang == 'en') {
   url = 'https://data.opendevelopmentcambodia.net/en/api/3/action/datastore_search';
   resourceId = '50d26fc8-e451-4486-9252-6cdf09a34fea';
+  unknown_text = 'Unknown'
 } else {
   url = 'https://data.opendevelopmentcambodia.net/km/api/3/action/datastore_search';
   resourceId = '2515b02f-3e0e-48af-8d58-219cc97a5b0b';
+  unknown_text = 'មិនស្គាល់'
 }
-
 
 const limit = 500;
 
@@ -38,9 +40,9 @@ try {
         // investment          : d3.format(',.2r')(record.cap_inv),
         investment_mm       : record.cap_inv_m,
         investment          : record.cap_inv,
-        nationality         : (!record.nat_pro) ? 'មិនស្គាល់' : record.nat_pro,
+        nationality         : (!record.nat_pro) ? unknown_text : record.nat_pro,
         job_creation        : record.job_creat,
-        year_start          : (!record.sta_oper) ? 'មិនស្គាល់' : record.sta_oper,
+        year_start          : (!record.sta_oper) ? unknown_text : record.sta_oper,
         province            : record.pro_loc,
         data_classification : record.data_c,
         reference           : record.reference,

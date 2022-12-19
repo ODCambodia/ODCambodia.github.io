@@ -21,6 +21,7 @@
 .dc-chart g.row text {
   fill: #141314;
   pointer-events: inherit;
+  font-size: 11px;
 }
 
 .dc-chart .pie-slice {
@@ -39,4 +40,8 @@
   overflow-y: auto;
   width: 400px;
   height: 210px;
+}
+
+.fim-pie-chart > svg > g:first-child {
+  transform: translate(70%, 50%);
 }

@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <title>Dashboard | Foreign investment in Cambodia</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -24,11 +25,11 @@
 </head>
 
 <body class="dashboard">
-    <!-- Image and text -->
     <nav class="navbar navbar-dark navbar-expand-lg" style="background: #06323d;">
-        <a class="navbar-brand" href="index.html">
-            <!-- <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
-            Foreign investment in Cambodia
+        <img src="/assets/img/odc-logo.jpg" width="360" height="100" class="d-inline-block align-top" alt="logo">
+
+        <!-- <a class="navbar-brand" href="../index.html">
+            ការ​វិនិយោគ​នៅ​ប្រទេស​កម្ពុជា
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,15 +38,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Dashboard<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/km/index.html">បាណ្ណូបរិធាន<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/km/timeline/laws.html">ច្បាប់​ និង​បទ​ប្បញ្ញត្តិ​<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/timeline/laws.html">Laws and regulations<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/km/timeline/events.html">ព្រឹតិ្តការណ៍<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/timeline/events.html">Events<span class="sr-only">(current)</span></a>
-                </li>
-                <!-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Dropdown
                     </a>
@@ -55,13 +56,13 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li> -->
+                </li>
             </ul>
-        </div>
+        </div> -->
     </nav>
 
     <div class="container-fluid">
-        <h1 class="mb-3">Foreign investment tracker dashboard</h1>
+        <h1 class="my-4">Foreign investment tracker dashboard</h1>
         <div class="row">
             <div class="col px-1">
                 <div class="chart-wrapper" style="width: 100%">
@@ -190,9 +191,12 @@
         <div class="row">
             <!-- Data Table -->
             <div class="col-lg-12 px-1 pb-3" style="background-color: #fff;">
-                <p class="ml-3 mt-2"><strong>List of foriegn investment projects in Cambodia</strong></p>
+                <p class="ml-3 mt-2"><strong>List of foreign investment projects in Cambodia</strong></p>
                 <div id="fim-datatable"></div>
             </div>
+        </div>
+        <div class="my-2 disclaimer">
+            <small><strong>Disclaimer:</strong> This work and any original materials produced and published by Open Development Cambodia herein are licensed under a CC BY-SA 4.0. The information and data on this website are compiled through publicly available platforms, including official government websites, official developer company websites, news websites, and third-party sources. The dashboard is generated with all publicly available data and is provided for general informational purposes only. It does not reflect the whole foreign investment landscape of Cambodia.ODC makes no representation or warranty, either expressed or implied, in fact or in law, with respect to the accuracy, completeness or appropriateness of the data, materials or documents contained or referenced herein or provided.</small>
         </div>
     </div>
 

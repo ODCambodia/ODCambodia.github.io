@@ -212,7 +212,7 @@ try {
         data  : d => d.developer,
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Nationality of project' : 'ប្រទេសអភិវឌ្ឍគម្រោង',
+        title : (document.documentElement.lang == 'en') ? 'Nationality of project (Country)' : 'ប្រទេសអភិវឌ្ឍគម្រោង',
         data  : d => d.nationality,
       },
       {

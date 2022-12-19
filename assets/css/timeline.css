@@ -16,10 +16,10 @@
 .point {
   min-width: 20px;
   height: 20px;
-  background-color: #e1d9ec;
+  background-color: #D0D8D9;
   border-radius: 100%;
   z-index: 2;
-  border: 3px #be9fe1 solid;
+  border: 3px rgba(6, 50, 61) solid;
   position: relative;
   left: 1px;
 }
@@ -45,16 +45,18 @@
   font-weight: normal;
 }
 .timeline ul li .date h5 {
-  background-color: #e1ccec;
+  background-color: rgba(6, 50, 61, 0.8);
+  color: #fefefe;
   width: 15rem;
   text-align: center;
   padding: 15px 10px;
+  border: solid 2px rgba(6, 50, 61, 0.4);
   border-radius: 10px;
 }
 .timeline ul li .content h4 {
   color: #fefefe;
   padding: 10px 20px;
-  background-color: #be9fe1;
+  background-color: rgba(6, 50, 61, 0.8);
   margin-bottom: 0;
   text-align: center;
   border-top-left-radius: 10px;
@@ -62,7 +64,7 @@
 }
 .timeline ul li .content p {
   padding: 10px 20px;
-  background-color: #e1d9ec;
+  background-color: rgba(6, 50, 61, 0.2);
   margin-top: 0;
   text-align: center;
   border-bottom-left-radius: 10px;
@@ -80,7 +82,7 @@
   height: 98%;
   width: 3px;
   left: 50%;
-  background-color: #be9fe1;
+  background-color: #06323d;
   top: 8rem;
 }
 

@@ -17,17 +17,8 @@ const osmMapnik = L.tileLayer(osmMapnikUrl, {
   attribution: osmMapnikAttrib
 })
 
-const stadiaAlidadeSmoothUrl = 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png';
-const stadiaAlidadeSmoothAttrib = '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-
-const stadiaAlidadeSmooth = L.tileLayer(stadiaAlidadeSmoothUrl, {
-  maxZoom: 19,
-  attribution: stadiaAlidadeSmoothAttrib
-})
-
 let basemaps = {
   'Open Street Map Mapnik': osmMapnik,
-  'Stadia Alidade Smooth': stadiaAlidadeSmooth,
 }
 
 L.control.layers(basemaps).addTo(map);

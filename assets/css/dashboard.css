@@ -43,5 +43,9 @@
 }
 
 .fim-pie-chart > svg > g:first-child {
-  transform: translate(70%, 50%);
+  transform: translate(30%, 50%);
+}
+
+g.dc-legend {
+  transform: translate(57%, 25%);
 }

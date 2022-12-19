@@ -43,6 +43,7 @@ try {
         nationality         : (!record.nat_pro) ? unknown_text : record.nat_pro,
         job_creation        : record.job_creat,
         year_start          : (!record.sta_oper) ? unknown_text : record.sta_oper,
+        director_name       : (!record.dir_name) ? unknown_text : record.dir_name,
         province            : record.pro_loc,
         data_classification : record.data_c,
         reference           : record.reference,
@@ -221,6 +222,14 @@ try {
       {
         title : (document.documentElement.lang == 'en') ? 'Started year' : 'គម្រោងចាប់ផ្តើម',
         data  : d => d.year_start,
+      },
+      {
+        title : (document.documentElement.lang == 'en') ? 'Director name' : 'ឈ្មោះនាយកក្រុមហ៊ុន',
+        data  : d => d.director_name,
+      },
+      {
+        title : (document.documentElement.lang == 'en') ? 'Project location' : 'ទីតាំងគម្រោង',
+        data  : d => d.province,
       }
     ]
 
@@ -248,7 +257,7 @@ try {
       .groupBy(d => d.sector)
       .showGroups(true)
       .select(true)
-      .buttons(["pdf", "csv", "excel", "print"])
+      .buttons(["csv", "excel", "print"])
 
     dc.renderAll();
   })

@@ -21,17 +21,17 @@ let basemaps = {
   'Open Street Map Mapnik': osmMapnik,
 }
 
-L.control.layers(basemaps).addTo(map);
+// L.control.layers(basemaps).addTo(map);
 
 map.addLayer(osmMapnik);
 
-let stadiaAlidadeSmoothMini = L.tileLayer(osmMapnikUrl, {
-  maxZoom: 20,
-  attribution: osmMapnikAttrib
-})
+// let stadiaAlidadeSmoothMini = L.tileLayer(osmMapnikUrl, {
+//   maxZoom: 20,
+//   attribution: osmMapnikAttrib
+// })
 
-let miniMap = new L.Control.MiniMap(stadiaAlidadeSmoothMini, {
-  toggleDisplay: true,
-  collapsedWidth: 20,
-  collapsedHeight: 20
-}).addTo(map);
+// let miniMap = new L.Control.MiniMap(stadiaAlidadeSmoothMini, {
+//   toggleDisplay: true,
+//   collapsedWidth: 20,
+//   collapsedHeight: 20
+// }).addTo(map);

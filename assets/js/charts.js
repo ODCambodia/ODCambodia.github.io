@@ -70,6 +70,7 @@ try {
     })
 
     let sectorDimension = ndx.dimension(d => d.sector);
+    let sectorDimensionRow = ndx.dimension(d => d.sector);
     let investmentSectorDimension = ndx.dimension( d => d.sector );
     let investmentDimension = ndx.dimension(d => d.investment_mm);
     let provinceDimension = ndx.dimension(d => d.province);
@@ -106,7 +107,7 @@ try {
     });
 
     let sectorGroup = sectorDimension.group().reduceCount();
-    let investmentGroup = sectorDimension.group().reduceSum(d => d.investment_mm);
+    let investmentGroup = sectorDimensionRow.group().reduceSum(d => d.investment_mm);
     let provinceGroup = provinceDimension.group().reduceCount();
     let investmentNationalityGroup = nationalityDimension.group().reduceSum(d => d.investment_mm);
     let projectGroup = projectDimension.group();
@@ -155,7 +156,7 @@ try {
       .radius(projectsBySectorPieChart * pieRscale)
       // .slicesCap(8)
       .innerRadius(40)
-      .externalLabels(200)
+      .externalLabels(500)
       .legend(dc.legend()
         .y(Math.round(projectsBySectorPieChart.height()) * 0.02, 1)
         .gap(Math.round(projectsBySectorPieChart.height() * 0.02, 1))
@@ -180,7 +181,7 @@ try {
       .slicesCap(5)
       .useViewBoxResizing(true)
       .innerRadius(40)
-      .externalLabels(200)
+      .externalLabels(500)
       .legend(dc.legend()
         .y(Math.round(projectsByProvincePieChart.height()) * 0.02, 1)
         .gap(Math.round(projectsByProvincePieChart.height() * 0.02, 1))

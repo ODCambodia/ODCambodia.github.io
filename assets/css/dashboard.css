@@ -19,9 +19,7 @@
 }
 
 .dc-chart g.row text {
-  font-family: 'Barrio';
   fill: #141314;
-  font-size: 0.8em;
   pointer-events: inherit;
 }
 

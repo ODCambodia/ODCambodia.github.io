@@ -49,3 +49,11 @@
 g.dc-legend {
   transform: translate(57%, 25%);
 }
+
+div.dataTables_paginate li.previous a:before {
+  content: "<";
+}
+
+div.dataTables_paginate li.next a:after {
+  content: ">";
+}

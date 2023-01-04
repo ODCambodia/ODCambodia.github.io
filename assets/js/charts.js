@@ -118,10 +118,9 @@ try {
     let projectsBySectorPieChart = dc.pieChart('#projects-by-sector-pie-chart');
     let projectsByProvincePieChart = dc.pieChart('#projects-by-province-pie-chart');
 
-    let investmentBySectorRowChart = dc.rowChart('#chart-ring-sector');
+    let investmentByNationalityRowChart = dc.rowChart('#investment-by-nationality-row-chart');
+    let investmentBySectorRowChart = dc.rowChart('#investment-by-sector-row-chart');
     
-    let investmentByNationalityRowChart = dc.rowChart('#chart-ring-nationality');
-
     projectsByCoordinateMapChart
       .dimension(projectsByCoordinate)
       .group(coordinateGroup)
@@ -248,6 +247,7 @@ try {
       .enablePagingSizeChange(true)
       .enableSearch(true)
       .enableAutoWidth(true)
+      .enableHeader(true)
       .fixedHeader(true)
       .enableScrolling(false)
       .scrollingOptions({

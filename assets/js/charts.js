@@ -25,8 +25,8 @@ const pieXscale         = 1.41;
 const pieRscale         = chartHeightScale * 0.5;
 
 const projectsByCoordinateMapChart = dc_leaflet.markerChart('#cluster-map-anchor'); 
-const projectsBySectorPieChart = new dc.PieChart('#projects-by-sector-pie-chart');
-const projectsByProvincePieChart = new dc.PieChart('#projects-by-province-pie-chart');
+// const projectsBySectorPieChart = new dc.PieChart('#projects-by-sector-pie-chart');
+// const projectsByProvincePieChart = new dc.PieChart('#projects-by-province-pie-chart');
 const investmentByNationalityRowChart = new dc.RowChart('#investment-by-nationality-row-chart');
 const investmentBySectorRowChart = new dc.RowChart('#investment-by-sector-row-chart');
 
@@ -148,20 +148,20 @@ try {
         }
       })
 
-    projectsBySectorPieChart
-      .dimension(sectorDimension)
-      .group(sectorGroup)
-      // .useViewBoxResizing(true)
-      // .height(setHeight(projectsBySectorPieChart) - 30)
-      // .cx(projectsBySectorPieChart / pieXscale)
-      // .radius(projectsBySectorPieChart * pieRscale)
-      // .slicesCap(8)
-      // .innerRadius(40)
-      // .externalLabels(500)
-      .legend(dc.legend()
-        .y(Math.round(projectsBySectorPieChart.height()) * 0.02, 1)
-        .gap(Math.round(projectsBySectorPieChart.height() * 0.02, 1))
-      )
+    // projectsBySectorPieChart
+    //   .dimension(sectorDimension)
+    //   .group(sectorGroup)
+    //   .useViewBoxResizing(true)
+    //   .height(setHeight(projectsBySectorPieChart) - 30)
+    //   .cx(projectsBySectorPieChart / pieXscale)
+    //   .radius(projectsBySectorPieChart * pieRscale)
+    //   // .slicesCap(8)
+    //   .innerRadius(40)
+    //   .externalLabels(500)
+    //   .legend(dc.legend()
+    //     .y(Math.round(projectsBySectorPieChart.height()) * 0.02, 1)
+    //     .gap(Math.round(projectsBySectorPieChart.height() * 0.02, 1))
+    //   )
 
     investmentBySectorRowChart
       .dimension(investmentSectorDimension)
@@ -173,20 +173,20 @@ try {
       .ordering( d => -d.value )
       .xAxis().ticks(5)
 
-    projectsByProvincePieChart
-      .dimension(provinceDimension)
-      .group(provinceGroup)
-      // .height(setHeight(projectsByProvincePieChart) - 30)
-      // .cx(projectsByProvincePieChart / pieXscale)
-      // .radius(projectsByProvincePieChart * pieRscale)
-      // .slicesCap(5)
-      // .useViewBoxResizing(true)
-      // .innerRadius(40)
-      // .externalLabels(500)
-      .legend(dc.legend()
-        .y(Math.round(projectsByProvincePieChart.height()) * 0.02, 1)
-        .gap(Math.round(projectsByProvincePieChart.height() * 0.02, 1))
-      )
+    // projectsByProvincePieChart
+    //   .dimension(provinceDimension)
+    //   .group(provinceGroup)
+    //   .height(setHeight(projectsByProvincePieChart) - 30)
+    //   .cx(projectsByProvincePieChart / pieXscale)
+    //   .radius(projectsByProvincePieChart * pieRscale)
+    //   .slicesCap(5)
+    //   .useViewBoxResizing(true)
+    //   .innerRadius(40)
+    //   .externalLabels(500)
+    //   .legend(dc.legend()
+    //     .y(Math.round(projectsByProvincePieChart.height()) * 0.02, 1)
+    //     .gap(Math.round(projectsByProvincePieChart.height() * 0.02, 1))
+    //   )
 
     investmentByNationalityRowChart
       .dimension(nationalityDimension)

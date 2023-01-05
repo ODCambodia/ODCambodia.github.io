@@ -73,6 +73,11 @@
                     <div class="chart-stage">
                         <div class="dc-datatable-count">
                             Selecting <span class="filter-count"></span> of <span class="total-count"></span> records
+                            <span>
+                                <a class="reset" style="display: none;" href="javascript:datatableCount.filterAll(); dc.redrawAll();">
+                                    <small>Reset</small>
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -83,13 +88,13 @@
             <div class="col-lg-4 px-1">
                 <div class="chart-wrapper">
                     <div class="chart-stage">
-                        <div class="chart-title">
+                        <div class="chart-title mb-2">
                             <span>
                                 <strong>Project location</strong>
                             </span>
                             <span>
-                                <a class="reset" style="display:none" href="javascript:projectsByCoordinateMapChart.filterAll(); dc.redrawAll();">
-                                    reset
+                                <a class="reset" style="display: none;" href="javascript:projectsByCoordinateMapChart.filterAll(); dc.redrawAll();">
+                                    <small>Reset</small>
                                 </a>
                             </span>
                         </div>
@@ -104,20 +109,21 @@
                     <div class="col-lg-12 px-1">
                         <div class="chart-wrapper">
                             <div class="chart-stage">
-                                <div class="chart-title">
-                                    <span>
-                                        <strong>
-                                            Projects by province
-                                        </strong>
-                                    </span>
-                                    <span>
-                                        <a class="reset" style="display:none" href="javascript:projectsByProvincePieChart.filterAll(); dc.redrawAll();">
-                                            reset
-                                        </a>
-                                    </span>
-                                </div>
                                 <!-- Pie Chart: Number of Project By Province -->
-                                <div id="projects-by-province-pie-chart" class="fim-pie-chart dc-chart"></div>
+                                <div id="projects-by-province-pie-chart" class="fim-pie-chart dc-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                Projects by province
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <a class="reset" style="display: none;" href="javascript:projectsByProvincePieChart.filterAll(); dc.redrawAll();">
+                                                <small>Reset</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="province-legend"></div>
                             </div>
                         </div>
@@ -125,18 +131,15 @@
                     <div class="col-lg-12 px-1">
                         <div class="chart-wrapper">
                             <div class="chart-stage">
-                                <div class="chart-title">
+                                <div id="investment-by-nationality-row-chart" class="dc-chart fim-row-chart">
                                     <span>
                                         <strong>
                                             Investment by country (millions USD)
                                         </strong>
                                     </span>
-                                    <div id="investment-by-nationality-row-chart" class="dc-chart fim-row-chart"></div>
-                                    <span>
-                                        <a class="reset" style="display:none" href="javascript:investmentByNationalityRowChart.filterAll(); dc.redrawAll();">
-                                            reset
-                                        </a>
-                                    </span>
+                                    <a class="reset" style="display: none;" href="javascript:investmentByNationalityRowChart.filterAll(); dc.redrawAll();">
+                                        <small>Reset</small>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -149,20 +152,21 @@
                     <div class="col-lg-12 px-1">
                         <div class="chart-wrapper">
                             <div class="chart-stage">
-                                <div class="chart-title">
-                                    <span>
-                                        <strong>
-                                            Projects by sector
-                                        </strong>
-                                    </span>
-                                    <span>
-                                        <a class="reset" style="display:none" href="javascript:projectsBySectorPieChart.filterAll(); dc.redrawAll();">
-                                            reset
-                                        </a>
-                                    </span>
-                                </div>
                                 <!-- Pie Chart: Number of Projects by Sectors -->
-                                <div id="projects-by-sector-pie-chart" class="fim-pie-chart dc-chart"></div>
+                                <div id="projects-by-sector-pie-chart" class="fim-pie-chart dc-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                Projects by sector
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <a class="reset" style="display: none;" href="javascript:projectsBySectorPieChart.filterAll(); dc.redrawAll();">
+                                                <small>Reset</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="sector-legend"></div>
                             </div>
                         </div>
@@ -170,20 +174,21 @@
                     <div class="col-lg-12 px-1">
                         <div class="chart-wrapper">
                             <div class="chart-stage">
-                                <div class="chart-title">
-                                    <span>
-                                        <strong>
-                                            Investment by sector (millions USD)
-                                        </strong>
-                                    </span>
-                                    <span>
-                                        <a class="reset" style="display:none" href="javascript:investmentBySectorRowChart.filterAll(); dc.redrawAll();">
-                                            reset
-                                        </a>
-                                    </span>
-                                </div>
                                 <!-- Row: Volume of Investment by Sectors -->
-                                <div id="investment-by-sector-row-chart" class="dc-chart fim-row-chart"></div>
+                                <div id="investment-by-sector-row-chart" class="dc-chart fim-row-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                Investment by sector (millions USD)
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <a class="reset" style="display: none;" href="javascript:investmentBySectorRowChart.filterAll(); dc.redrawAll();">
+                                                <small>Reset</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

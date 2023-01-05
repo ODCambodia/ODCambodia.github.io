@@ -1,3 +1,5 @@
+'use strict';
+
 let url;
 let resourceId;
 let unknown_text = '';
@@ -21,6 +23,12 @@ let projects = [];
 const chartHeightScale  = 0.55;
 const pieXscale         = 1.41;
 const pieRscale         = chartHeightScale * 0.5;
+
+const projectsByCoordinateMapChart = dc_leaflet.markerChart('#cluster-map-anchor'); 
+const projectsBySectorPieChart = new dc.PieChart('#projects-by-sector-pie-chart');
+const projectsByProvincePieChart = new dc.PieChart('#projects-by-province-pie-chart');
+const investmentByNationalityRowChart = new dc.RowChart('#investment-by-nationality-row-chart');
+const investmentBySectorRowChart = new dc.RowChart('#investment-by-sector-row-chart');
 
 function setHeight(chart) {
   return chart.width() * chartHeightScale;
@@ -56,11 +64,11 @@ try {
 
     return projects;
   }).then(projects => {
-    let ndx = crossfilter(projects);
-    let all = ndx.groupAll();
+    const ndx = crossfilter(projects);
+    const all = ndx.groupAll();
 
     // Dimension
-    let projectsByCoordinate = ndx.dimension(d => {
+    const projectsByCoordinate = ndx.dimension(d => {
       let projectInfo = [
         d.lat,
         d.lng,
@@ -69,14 +77,14 @@ try {
       return projectInfo;
     })
 
-    let sectorDimension = ndx.dimension(d => d.sector);
-    let sectorDimensionRow = ndx.dimension(d => d.sector);
-    let investmentSectorDimension = ndx.dimension( d => d.sector );
-    let investmentDimension = ndx.dimension(d => d.investment_mm);
-    let provinceDimension = ndx.dimension(d => d.province);
-    let nationalityDimension = ndx.dimension(d => d.nationality);
+    const sectorDimension = ndx.dimension(d => d.sector);
+    const sectorDimensionRow = ndx.dimension(d => d.sector);
+    const investmentSectorDimension = ndx.dimension( d => d.sector );
+    const investmentDimension = ndx.dimension(d => d.investment_mm);
+    const provinceDimension = ndx.dimension(d => d.province);
+    const nationalityDimension = ndx.dimension(d => d.nationality);
 
-    let projectDimension = ndx.dimension(d => [
+    const projectDimension = ndx.dimension(d => [
       d.sector,
       d.developer,
       d.project_type,
@@ -86,7 +94,7 @@ try {
     ])
 
     // Group
-    let coordinateGroup = projectsByCoordinate.group().reduce((p, v) => {
+    const coordinateGroup = projectsByCoordinate.group().reduce((p, v) => {
       p.lat           = v.lat;
       p.lng           = v.lng;
       p.project_type  = v.project_type;
@@ -106,20 +114,14 @@ try {
       return {count: 0};
     });
 
-    let sectorGroup = sectorDimension.group().reduceCount();
-    let investmentGroup = sectorDimensionRow.group().reduceSum(d => d.investment_mm);
-    let provinceGroup = provinceDimension.group().reduceCount();
-    let investmentNationalityGroup = nationalityDimension.group().reduceSum(d => d.investment_mm);
-    let projectGroup = projectDimension.group();
+    const sectorGroup = sectorDimension.group().reduceCount();
+    const investmentGroup = sectorDimensionRow.group().reduceSum(d => d.investment_mm);
+    const provinceGroup = provinceDimension.group().reduceCount();
+    const investmentNationalityGroup = nationalityDimension.group().reduceSum(d => d.investment_mm);
+    const projectGroup = projectDimension.group();
   
     // Charts
-    let projectsByCoordinateMapChart = dc_leaflet.markerChart('#cluster-map-anchor');
     
-    let projectsBySectorPieChart = dc.pieChart('#projects-by-sector-pie-chart');
-    let projectsByProvincePieChart = dc.pieChart('#projects-by-province-pie-chart');
-
-    let investmentByNationalityRowChart = dc.rowChart('#investment-by-nationality-row-chart');
-    let investmentBySectorRowChart = dc.rowChart('#investment-by-sector-row-chart');
     
     projectsByCoordinateMapChart
       .dimension(projectsByCoordinate)

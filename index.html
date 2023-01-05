@@ -73,11 +73,7 @@
                     <div class="chart-stage">
                         <div class="dc-datatable-count">
                             Selecting <span class="filter-count"></span> of <span class="total-count"></span> records
-                            <span>
-                                <a class="reset" style="display: none;" href="javascript:datatableCount.filterAll(); dc.redrawAll();">
-                                    <small>Reset</small>
-                                </a>
-                            </span>
+                            <small><a href="javascript:dc.filterAll(); dc.renderAll();">Reset all</a></small>
                         </div>
                     </div>
                 </div>
@@ -93,7 +89,7 @@
                                 <strong>Project location</strong>
                             </span>
                             <span>
-                                <a class="reset" style="display: none;" href="javascript:projectsByCoordinateMapChart.filterAll(); dc.redrawAll();">
+                                <a href="javascript:dc.filterAll(); dc.redrawAll();">
                                     <small>Reset</small>
                                 </a>
                             </span>

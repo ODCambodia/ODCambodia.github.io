@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ODCambodia/fim-dashboard#readme",
   "dependencies": {
+    "@drustack/leaflet.resetview": "^1.1.1",
     "bootstrap": "^4.6.2",
     "crossfilter2": "^1.5.4",
     "d3": "^7.8.0",

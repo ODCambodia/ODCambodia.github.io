@@ -21,6 +21,13 @@ let basemaps = {
   'Open Street Map Mapnik': osmMapnik,
 }
 
+L.control.resetView({
+  position: "topleft",
+  title: "Reset view",
+  latlng: L.latLng([12.5657, 104.9910]),
+  zoom: 7,
+}).addTo(map);
+
 // L.control.layers(basemaps).addTo(map);
 
 map.addLayer(osmMapnik);

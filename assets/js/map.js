@@ -1,4 +1,10 @@
+let corner1 = L.latLng(15.002745460437396,107.89156597253896),
+    corner2 = L.latLng(10.339808116484065,102.20114177417332),
+    bounds = L.latLngBounds(corner1, corner2);
+
 let map = L.map('fim-map', {
+  maxBounds: bounds,
+  maxBoundsViscosity: 0.2,
   gestureHandling: true,
   // gestureHandlingOptions: {
   //   text: {
@@ -7,7 +13,7 @@ let map = L.map('fim-map', {
   //     scrollMac: "Hey bro, use \u2318 + scroll to zoom the map"
   //   }
   // }
-}).setView([12.5657, 104.9910], 7);
+}).setView([12.5657, 104.9910], 8);
 
 const osmMapnikUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const osmMapnikAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';

@@ -7,11 +7,11 @@ let unknown_text = '';
 if (document.documentElement.lang == 'en') {
   url = 'https://data.opendevelopmentcambodia.net/en/api/3/action/datastore_search';
   resourceId = '50d26fc8-e451-4486-9252-6cdf09a34fea';
-  unknown_text = 'Unknown'
+  unknown_text = 'Not found';
 } else {
   url = 'https://data.opendevelopmentcambodia.net/km/api/3/action/datastore_search';
   resourceId = '2515b02f-3e0e-48af-8d58-219cc97a5b0b';
-  unknown_text = 'មិនស្គាល់'
+  unknown_text = 'ពុំមានព័ត៌មាន';
 }
 
 const limit = 500;
@@ -179,10 +179,11 @@ try {
       .height(setHeight(projectsByProvincePieChart) - 30)
       .cx(projectsByProvincePieChart / pieXscale)
       .radius(projectsByProvincePieChart * pieRscale)
-      .slicesCap(5)
+      .slicesCap(11)
       .useViewBoxResizing(true)
       .innerRadius(40)
       .externalLabels(500)
+      .ordinalColors(["#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f"])
       .legend(dc.legend()
         .y(Math.round(projectsByProvincePieChart.height()) * 0.02, 1)
         .gap(Math.round(projectsByProvincePieChart.height() * 0.02, 1))

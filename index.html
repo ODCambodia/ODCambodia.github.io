@@ -32,7 +32,7 @@
 <body class="dashboard">
     <nav class="navbar navbar-dark sticky-top" style="background: #06323d;">
         <a class="navbar-brand" href="#">
-            <img src="/assets/img/odc-logo.jpg" width="360" height="100" class="d-inline-block align-top img-fluid" alt="odc-logo">
+            <img src="/assets/img/odc-logo.jpg" width="250" height="69" class="d-inline-block align-top img-fluid" alt="odc-logo">
         </a>
         <div class="action-button">
             <a class="btn btn-outline-light" href="https://opendevelopmentcambodia.net/en/profiles/foreign-investment-in-cambodia/" title="Back to Foreign Investment in Cambodia Profile Page" data-toggle="tooltip" data-placement="left" target="_blank">
@@ -94,22 +94,27 @@
 
         <div class="row">
             <div class="col-lg-4 px-1">
-                <div class="chart-wrapper">
-                    <div class="chart-stage">
-                        <div class="chart-title mb-2">
-                            <span>
-                                <strong>Project location</strong>
-                            </span>
-                            <span>
-                                <a href="javascript:dc.filterAll(); dc.redrawAll();">
-                                    <small>Reset</small>
-                                </a>
-                            </span>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-stage">
+                                <div class="chart-title mb-2">
+                                    <span>
+                                        <strong>Project location</strong>
+                                    </span>
+                                    <span>
+                                        <a href="javascript:dc.filterAll(); dc.redrawAll();">
+                                            <small>Reset</small>
+                                        </a>
+                                    </span>
+                                    This is my recrod
+                                </div>
+                                <!-- Leaflet Map -->
+                                <div class="map" id="fim-map"></div>
+                                <div id="culster-map-anchor"></div>
+                                <div class="clearfix"></div>
+                            </div>
                         </div>
-                        <!-- Leaflet Map -->
-                        <div class="map" id="fim-map"></div>
-                        <div id="culster-map-anchor"></div>
-                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>

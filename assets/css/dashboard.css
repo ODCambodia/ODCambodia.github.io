@@ -15,7 +15,12 @@
 #fim-map {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 38rem;
+}
+
+.dc-chart svg {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .dc-chart g.row text {
@@ -28,6 +33,10 @@
   fill: #352525;
   font-size: 10px;
   cursor: pointer;
+}
+
+.dc-chart .selected circle, .dc-chart .selected path {
+  stroke-width: 0;
 }
 
 #chart-ring-nationality {
@@ -47,7 +56,7 @@
 }
 
 g.dc-legend {
-  transform: translate(57%, 25%);
+  transform: translate(57%, 10%);
 }
 
 div.dataTables_paginate li.previous a:before {

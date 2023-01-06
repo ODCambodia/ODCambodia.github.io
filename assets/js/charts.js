@@ -134,7 +134,7 @@ try {
       .filterByArea(true)
       .cluster(true)
       .popup(d => {
-        return '<p>ឈ្មោះអ្នកអភិវឌ្ឍ៖ <a target="_blank" href="' + d.value.project_url + '">' + d.value.developer + '</a></p>' +
+        return '<p>អ្នកអភិវឌ្ឍន៍គម្រោង៖ <a target="_blank" href="' + d.value.project_url + '">' + d.value.developer + '</a></p>' +
               '<p>ទុនវិនិយោគ៖ <strong>' + d.value.investment_mm + ' លានដុល្លា</strong></p>' +
               '<p>គម្រោងអភិវឌ្ឍន៍៖ <strong>' + d.value.project_type + '</strong></p>' +
               '<p>វិស័យ៖ <strong>' + d.value.sector + '</strong></p>';
@@ -179,7 +179,7 @@ try {
       .height(setHeight(projectsByProvincePieChart) - 30)
       .cx(projectsByProvincePieChart / pieXscale)
       .radius(projectsByProvincePieChart * pieRscale)
-      .slicesCap(11)
+      .slicesCap(7)
       .useViewBoxResizing(true)
       .innerRadius(40)
       .externalLabels(500)
@@ -211,7 +211,7 @@ try {
         data  : d => d.project_type
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Project developer' : 'ឈ្មោះអ្នកអភិវឌ្ឍន៍',
+        title : (document.documentElement.lang == 'en') ? 'Project developer (Agency/Company)' : 'អ្នកអភិវឌ្ឍន៍គម្រោង (ទីភ្នាក់ងារ/ក្រុមហ៊ុន)',
         data  : d => d.developer,
       },
       {

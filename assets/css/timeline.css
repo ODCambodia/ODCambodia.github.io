@@ -79,7 +79,7 @@
 .timeline::before {
   content: "";
   position: absolute;
-  height: 98%;
+  height: 96%;
   width: 3px;
   left: 50%;
   background-color: #06323d;

@@ -13,6 +13,16 @@
   flex-direction: row;
   align-items: center;
 }
+
+.timeline ul li ol li {
+  counter-increment: section;
+  margin-bottom: 1rem;
+}
+
+.timeline ul li ol li:before {
+  content: "[" counter(section) "] ";
+}
+
 .point {
   min-width: 20px;
   height: 20px;
@@ -58,17 +68,19 @@
   padding: 10px 20px;
   background-color: rgba(6, 50, 61, 0.8);
   margin-bottom: 0;
-  text-align: center;
+  /* text-align: center; */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.timeline ul li .content p {
-  padding: 10px 20px;
+.timeline ul li .content div {
+  padding: 10px 15px;
   background-color: rgba(6, 50, 61, 0.2);
   margin-top: 0;
-  text-align: center;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+.timeline ul li .content #reference-text {
+  font-size: .9rem;
 }
 .timeline ul li:nth-child(even) {
   flex-direction: row-reverse;

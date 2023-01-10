@@ -19,6 +19,7 @@
   "dependencies": {
     "@drustack/leaflet.resetview": "^1.1.1",
     "bootstrap": "^4.6.2",
+    "bootstrap-icons": "^1.10.3",
     "crossfilter2": "^1.5.4",
     "d3": "^7.8.0",
     "dc": "^4.2.7",

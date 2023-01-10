@@ -14,7 +14,7 @@ if (document.documentElement.lang == 'en') {
   unknown_text = 'ពុំមានព័ត៌មាន';
 }
 
-const limit = 500;
+const limit = 1000;
 
 const datasetUrl = url + '?resource_id=' + resourceId + '&limit=' + limit;
 
@@ -159,8 +159,8 @@ try {
       .innerRadius(40)
       .externalLabels(500)
       .legend(dc.legend()
-        .y(Math.round(projectsBySectorPieChart.height()) * 0.02, 1)
-        .gap(Math.round(projectsBySectorPieChart.height() * 0.02, 1))
+        .gap(Math.round(projectsBySectorPieChart.height() * 0.03, 1))
+        .highlightSelected(true)
       )
 
     investmentBySectorRowChart
@@ -183,10 +183,11 @@ try {
       .useViewBoxResizing(true)
       .innerRadius(40)
       .externalLabels(500)
-      .ordinalColors(["#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f"])
+      // .ordinalColors(["#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f"])
       .legend(dc.legend()
-        .y(Math.round(projectsByProvincePieChart.height()) * 0.02, 1)
-        .gap(Math.round(projectsByProvincePieChart.height() * 0.02, 1))
+        .gap(Math.round(projectsByProvincePieChart.height() * 0.03, 1))
+        .highlightSelected(true)
+        .autoItemWidth(true)
       )
 
     investmentByNationalityRowChart

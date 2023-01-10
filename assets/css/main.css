@@ -22,3 +22,12 @@ h4 {
 h5 {
   font-size: 1.0rem;
 }
+
+a {
+  color: #8A4200;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #8A4200;
+}

@@ -64,7 +64,6 @@ function createTimeline(data, timelineId) {
     element += `<h5>${record.date}</h5>`;
     element += '</div>';
     
-
     timelineItem.innerHTML = element;
 
     timelineList.appendChild(timelineItem);
@@ -76,6 +75,7 @@ function createTimeline(data, timelineId) {
 function display_footnote(text, link) {
   text = text.replace('“', '"');
   text = text.replace('”', '"');
+  text = text.replace('’', '\'')
 
   let textBeforeQuote = text.split('"')[0];
   let textInsideQuote = text.split('"')[1];

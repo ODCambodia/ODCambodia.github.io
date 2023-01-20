@@ -50,7 +50,7 @@ try {
         investment          : record.cap_inv,
         nationality         : (!record.nat_pro) ? unknown_text : record.nat_pro,
         job_creation        : record.job_creat,
-        year_start          : (!record.sta_oper) ? unknown_text : record.sta_oper,
+        year_start          : (!record.year) ? unknown_text : record.year,
         director_name       : (!record.dir_name) ? unknown_text : record.dir_name,
         province            : record.pro_loc,
         data_classification : record.data_c,

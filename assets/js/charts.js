@@ -3,15 +3,26 @@
 let url;
 let resourceId;
 let unknown_text = '';
+const popupString = [];
 
 if (document.documentElement.lang == 'en') {
   url = 'https://data.opendevelopmentcambodia.net/en/api/3/action/datastore_search';
   resourceId = '50d26fc8-e451-4486-9252-6cdf09a34fea';
   unknown_text = 'Not found';
+  popupString['developer'] = 'Project developer (Agency / Company):';
+  popupString['investment'] = 'Capital investment:';
+  popupString['million_dollar'] = 'millions USD';
+  popupString['project_type'] = 'Development project:';
+  popupString['sector'] = 'Sector:';
 } else {
   url = 'https://data.opendevelopmentcambodia.net/km/api/3/action/datastore_search';
   resourceId = '2515b02f-3e0e-48af-8d58-219cc97a5b0b';
   unknown_text = 'ពុំមានព័ត៌មាន';
+  popupString['developer'] = 'អ្នកអភិវឌ្ឍន៍គម្រោង៖';
+  popupString['investment'] = 'ទុនវិនិយោគ៖';
+  popupString['million_dollar'] = 'លានដុល្លារ';
+  popupString['project_type'] = 'គម្រោងអភិវឌ្ឍន៍៖';
+  popupString['sector'] = 'វិស័យ៖';
 }
 
 const limit = 1000;
@@ -134,10 +145,10 @@ try {
       .filterByArea(true)
       .cluster(true)
       .popup(d => {
-        return '<p>អ្នកអភិវឌ្ឍន៍គម្រោង៖ <a target="_blank" href="' + d.value.project_url + '">' + d.value.developer + '</a></p>' +
-              '<p>ទុនវិនិយោគ៖ <strong>' + d.value.investment_mm + ' លានដុល្លា</strong></p>' +
-              '<p>គម្រោងអភិវឌ្ឍន៍៖ <strong>' + d.value.project_type + '</strong></p>' +
-              '<p>វិស័យ៖ <strong>' + d.value.sector + '</strong></p>';
+        return `<p>${popupString['developer']} <a target="_blank" href="` + d.value.project_url + '">' + d.value.developer + '</a></p>' +
+              `<p>${popupString['investment']} <strong>` + d.value.investment_mm + ` ${popupString['million_dollar']}</strong></p>` +
+              `<p>${popupString['project_type']} <strong>` + d.value.project_type + '</strong></p>' +
+              `<p>${popupString['sector']} <strong>` + d.value.sector + '</strong></p>';
       })
       .clusterOptions({
         spiderfyOnMaxZoom: true,
@@ -220,7 +231,7 @@ try {
         data  : d => d.nationality,
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Capital investment (millions USD)' : 'ទុនវិនិយោគ (លានដុល្លា)',
+        title : (document.documentElement.lang == 'en') ? 'Capital investment (millions USD)' : 'ទុនវិនិយោគ (លានដុល្លារ)',
         data  : d => d.investment_mm,
       },
       {

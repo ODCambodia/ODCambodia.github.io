@@ -53,6 +53,10 @@ function createTimeline(data, timelineId) {
       element += '<p class="font-italic text-right">' + display_footnote(record.reference_text, record.resource_link) + '</p>';
     }
 
+    if (record.reference_2) {
+      element += '<p class="font-italic text-right">' + display_footnote(record.reference_2, record.resource_link_2) + '</p>';
+    }
+
     if (record.reference_text_2) {
       element += '<p class="font-italic text-right">' + display_footnote(record.reference_text_2, record.resource_link_2) + '</p>';
     }
@@ -80,8 +84,6 @@ function display_footnote(text, link) {
   let textBeforeQuote = text.split('"')[0];
   let textInsideQuote = text.split('"')[1];
   let textAfterQuote = text.split('"')[2];
-
-  console.log(textInsideQuote);
 
   let footNote = textBeforeQuote + `"<a target="_blank" href="${link}">` + textInsideQuote + '</a>"' + textAfterQuote;
 

@@ -218,36 +218,69 @@ try {
     const datatableCount = dc.dataCount('.dc-datatable-count');
     const datatable = dc.tableview('#fim-datatable')
 
-    const columns = [
+    const columns_en = [
       {
-        title : (document.documentElement.lang == 'en') ? 'Project Name' : 'ឈ្មោះគម្រោង',
+        title : 'Project Name',
         data  : d => d.project_name
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Development project' : 'គម្រោងអភិវឌ្ឍន៍',
+        title : 'Development project',
         data  : d => d.project_type
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Project developer (Agency/Company)' : 'អ្នកអភិវឌ្ឍន៍គម្រោង (ទីភ្នាក់ងារ/ក្រុមហ៊ុន)',
+        title : 'Project developer (Agency/Company)',
         data  : d => d.developer,
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Nationality of project (Country)' : 'ប្រទេសអភិវឌ្ឍគម្រោង',
+        title : 'Nationality of project (Country)',
         data  : d => d.nationality,
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Capital investment (millions USD)' : 'ទុនវិនិយោគ (លានដុល្លារ)',
+        title : 'Capital investment (millions USD)',
         data  : d => d.investment_mm,
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Started year' : 'គម្រោងចាប់ផ្តើម',
+        title : 'Started year',
         data  : d => d.year_start,
       },
       {
-        title : (document.documentElement.lang == 'en') ? 'Project location' : 'ទីតាំងគម្រោង',
+        title : 'Project location',
         data  : d => d.province,
       }
     ]
+
+    const columns_km = [
+      {
+        title : 'ឈ្មោះគម្រោង',
+        data  : d => d.project_name
+      },
+      {
+        title : 'គម្រោងអភិវឌ្ឍន៍',
+        data  : d => d.project_type
+      },
+      {
+        title : 'អ្នកអភិវឌ្ឍន៍គម្រោង (ទីភ្នាក់ងារ/ក្រុមហ៊ុន)',
+        data  : d => d.developer,
+      },
+      {
+        title : 'ប្រទេសអភិវឌ្ឍគម្រោង',
+        data  : d => d.nationality,
+      },
+      {
+        title : 'ទុនវិនិយោគ (លានដុល្លារ)',
+        data  : d => d.investment_mm,
+      },
+      {
+        title : 'គម្រោងចាប់ផ្តើម',
+        data  : d => d.year_start,
+      },
+      {
+        title : 'ទីតាំងគម្រោង',
+        data  : d => d.province,
+      }
+    ]
+
+    const columns = (document.documentElement.lang == 'en') ? columns_en : columns_km;
 
     datatableCount
       .crossfilter(ndx)

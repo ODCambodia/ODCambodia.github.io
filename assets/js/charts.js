@@ -51,6 +51,7 @@ try {
 
     records.forEach(record => {
       let value = {
+        project_name        : record.pro_name,
         project_type        : record.dev_pro,
         developer           : record.pro_dev,
         project_url         : record.link_p,
@@ -219,6 +220,10 @@ try {
 
     const columns = [
       {
+        title : (document.documentElement.lang == 'en') ? 'Project Name' : 'ឈ្មោះគម្រោង',
+        data  : d => d.project_name
+      },
+      {
         title : (document.documentElement.lang == 'en') ? 'Development project' : 'គម្រោងអភិវឌ្ឍន៍',
         data  : d => d.project_type
       },
@@ -237,10 +242,6 @@ try {
       {
         title : (document.documentElement.lang == 'en') ? 'Started year' : 'គម្រោងចាប់ផ្តើម',
         data  : d => d.year_start,
-      },
-      {
-        title : (document.documentElement.lang == 'en') ? 'Director name' : 'ឈ្មោះនាយកក្រុមហ៊ុន',
-        data  : d => d.director_name,
       },
       {
         title : (document.documentElement.lang == 'en') ? 'Project location' : 'ទីតាំងគម្រោង',

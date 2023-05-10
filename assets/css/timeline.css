@@ -1,0 +1,127 @@
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  /* width: 90%; */
+}
+.timeline ul {
+  padding: 0;
+}
+.timeline ul li {
+  margin-bottom: 50px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timeline ul li ol li {
+  counter-increment: section;
+  margin-bottom: 1rem;
+}
+
+.timeline ul li ol li:before {
+  content: "[" counter(section) "] ";
+}
+
+.point {
+  min-width: 20px;
+  height: 20px;
+  background-color: #D0D8D9;
+  border-radius: 100%;
+  z-index: 2;
+  border: 3px rgba(6, 50, 61) solid;
+  position: relative;
+  left: 1px;
+}
+.timeline ul li .content {
+  width: 50%;
+  padding: 0 20px;
+}
+.timeline ul li:nth-child(odd) .content {
+  padding-left: 0;
+}
+.timeline ul li:nth-child(odd) .date {
+  padding-right: 0;
+}
+.timeline ul li:nth-child(even) .content {
+  padding-right: 0;
+}
+.timeline ul li:nth-child(even) .date {
+  padding-left: 0;
+}
+.timeline ul li .date {
+  width: 50%;
+  padding: 0 20px;
+  font-weight: normal;
+}
+.timeline ul li .date h5 {
+  background-color: rgba(6, 50, 61, 0.8);
+  color: #fefefe;
+  width: 15rem;
+  text-align: center;
+  padding: 15px 10px;
+  border: solid 2px rgba(6, 50, 61, 0.4);
+  border-radius: 10px;
+}
+.timeline ul li .content h4 {
+  color: #fefefe;
+  padding: 10px 20px;
+  background-color: rgba(6, 50, 61, 0.8);
+  margin-bottom: 0;
+  /* text-align: center; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.timeline ul li .content div {
+  padding: 10px 15px;
+  background-color: rgba(6, 50, 61, 0.2);
+  margin-top: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.timeline ul li .content #reference-text {
+  font-size: .9rem;
+}
+.timeline ul li:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.timeline ul li:nth-child(even) .date h5 {
+  float: right
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  height: 96%;
+  width: 3px;
+  left: 50%;
+  background-color: #06323d;
+  top: 8rem;
+}
+
+@media (max-width: 800px) {
+  .point {
+    min-width: 15px;
+    height: 15px;
+  }
+  html, body {
+    font-size: 15px;
+  }
+}
+@media (max-width: 650px) {
+  html, body {
+    font-size: 14px;
+  }
+  
+  .point {
+    min-width: 12px;
+    height: 12px;
+  }
+}
+@media (max-width: 450px) {
+  html, body {
+    font-size: 10px;
+  }
+  p {
+    padding: 10px !important;
+  }
+}

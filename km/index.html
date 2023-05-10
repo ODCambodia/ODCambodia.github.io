@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Suwannaphum:wght@300&display=swap" rel="stylesheet">
+
+    <title>បាណ្ណូបរិធាន | ការវិនិយោគបរទេសនៅក្នុងប្រទេសកម្ពុជា</title>
+
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet-minimap/dist/Control.MiniMap.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet.markercluster/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/@drustack/leaflet.resetview/dist/L.Control.ResetView.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../node_modules/dc/dist/style/dc.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/dc-tableview/build/dc-tableview-bs.css">
+
+    <link rel='stylesheet' type='text/css' href='../assets/css/main.css'>
+    <link rel='stylesheet' type='text/css' href='../assets/css/dashboard.css'>
+</head>
+
+<body class="dashboard">
+    <nav class="navbar navbar-dark sticky-top" style="background: #06323d;">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/img/odc-logo.jpg" width="250" height="69" class="d-inline-block align-top img-fluid" alt="odc-logo">
+        </a>
+        <div class="action-button">
+            <a class="btn btn-outline-light" href="https://opendevelopmentcambodia.net/km/profiles/foreign-investment-in-cambodia/" title="ទៅកាន់ទំព័រការវិនិយោគបរទេសនៅកម្ពុជា" data-toggle="tooltip" data-placement="left" target="_blank">
+                ទៅកាន់ទំព័រទិន្នន័យព័ត៌មាន
+            </a>
+            <a class="btn btn-light" href="/" title="ទៅកាន់ទំព័រការវិនិយោគបរទេសនៅកម្ពុជា" data-toggle="tooltip" data-placement="left">
+                English
+            </a>
+        </div>
+
+        <!-- <a class="navbar-brand" href="../index.html">
+            ការ​វិនិយោគ​នៅ​ប្រទេស​កម្ពុជា
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/km/index.html">បាណ្ណូបរិធាន<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/km/timeline/laws.html">ច្បាប់​ និង​បទ​ប្បញ្ញត្តិ​<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/km/timeline/events.html">ព្រឹតិ្តការណ៍<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div> -->
+    </nav>
+
+    <div class="container-fluid">
+        <h1 class="my-4">ផ្ទាំងព័ត៌មានវិនិយោគបរទេសនៅកម្ពុជា</h1>
+        <div class="row">
+            <div class="col px-1">
+                <div class="chart-wrapper" style="width: 100%">
+                    <div class="chart-stage">
+                        <div class="dc-datatable-count">
+                            បង្ហាញលទ្ធផល <span class="filter-count"></span> នៃ <span class="total-count"></span> គម្រោង
+                            <small><a href="javascript:dc.filterAll(); dc.renderAll();">កំណត់ឡើងវិញទាំងអស់</a></small>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 px-1">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-stage">
+                                <div class="chart-title">
+                                    <span>
+                                        <strong>ទីតាំងគម្រោងវិនិយោគ</strong>
+                                    </span>
+                                    <span>
+                                        <a href="javascript:dc.filterAll(); dc.redrawAll();">
+                                            <small>កំណត់ឡើងវិញ</small>
+                                        </a>
+                                    </span>
+                                </div>
+                                <!-- Leaflet Map -->
+                                <div class="map" id="fim-map"></div>
+                                <div id="culster-map-anchor"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-12 px-1">
+                        <div class="chart-wrapper">
+                            <div class="chart-stage">
+                                <!-- Pie Chart: Number of Project By Province -->
+                                <div id="projects-by-province-pie-chart" class="fim-pie-chart dc-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                គម្រោងវិនិយោគតាមខេត្ត
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <a class="reset" style="display:none" href="javascript:projectsByProvincePieChart.filterAll(); dc.redrawAll();">
+                                                <small>កំណត់ឡើងវិញ</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="province-legend"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 px-1">
+                        <div class="chart-wrapper">
+                            <div class="chart-stage">
+                                <div id="investment-by-nationality-row-chart" class="fim-row-chart dc-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                ទំហំវិនិយោគតាមប្រទេស (លានដុល្លារ)
+                                            </strong>
+                                        </span>
+
+                                        <span>
+                                            <a class="reset" style="display:none" href="javascript:investmentByNationalityRowChart.filterAll(); dc.redrawAll();">
+                                                <small>កំណត់ឡើងវិញ</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-12 px-1">
+                        <div class="chart-wrapper">
+                            <div class="chart-stage">
+                                <!-- Pie Chart: Number of Projects by Sectors -->
+                                <div id="projects-by-sector-pie-chart" class="fim-pie-chart dc-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                គម្រោងវិនិយោគតាមវិស័យ
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <a class="reset" style="display:none" href="javascript:projectsBySectorPieChart.filterAll(); dc.redrawAll();">
+                                                <small>កំណត់ឡើងវិញ</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="sector-legend"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 px-1">
+                        <div class="chart-wrapper">
+                            <div class="chart-stage">
+                                <!-- Row: Volume of Investment by Sectors -->
+                                <div id="investment-by-sector-row-chart" class="fim-row-chart dc-chart">
+                                    <div class="chart-title">
+                                        <span>
+                                            <strong>
+                                                ទំហំវិនិយោគតាមវិស័យ (លានដុល្លារ)
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <a class="reset" style="display:none" href="javascript:investmentBySectorRowChart.filterAll(); dc.redrawAll();">
+                                                <small>កំណត់ឡើងវិញ</small>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row">
+            <!-- Data Table -->
+            <div class="col-lg-12 px-1 pb-3" style="background-color: #fff;">
+                <p class="ml-3 mt-2"><strong>តារាងគម្រោងវិនិយោគបរទេសនៅកម្ពុជា</strong></p>
+                <div id="fim-datatable"></div>
+            </div>
+        </div>
+        <div class="my-2 disclaimer">
+            <small><strong>កំណត់សំគាល់៖ </strong>​ខ្លឹមសារ​នៅ​ក្នុង​គេហទំព័រ​ និង​គ្រប់​ស្នាដៃ​ដើម​ដែល​ផលិត​ និង​បោះពុម្ព​ដោយ​អង្គការ​ទិន្នន័យ​អំពី​ការ​អភិវឌ្ឍ​ ត្រូវ​បាន​ផ្តល់​ក្រោម​អាជ្ញាប័ណ្ណ​ CC​ BY-SA​ 4.0​។​ អត្ថបទ​ព័ត៌មាន​ និង​ទិន្នន័យ​នៅ​លើ​គេហទំព័រ​នេះ​ត្រូវ​បាន​ចងក្រង​តាម​រយៈ​វេទិកា​ដែល​មាន​ជា​សាធារណៈ​ រួម​មាន​គេហទំព័រ​ផ្លូវការ​របស់​រដ្ឋាភិបាល​ គេហទំព័រ​ផ្លូវការ​របស់​ក្រុមហ៊ុន​អភិវឌ្ឍន៍​ គេហទំព័រ​ព័ត៌មាន​ និង​ប្រភព​ដែល​បាន​មក​ពី​ភាគី​ទី​បី​។​ ផ្ទាំង​ព័ត៌មាន​នេះ​ត្រូវ​បាន​បង្កើត​ឡើង​ជាមួយនឹង​ទិន្នន័យ​ដែល​មាន​ជា​សាធារណៈ​ទាំងអស់​ ហើយ​ត្រូវ​បាន​ផ្តល់​ជូន​សម្រាប់​គោលបំណង​ជា​ព័ត៌មាន​ទូទៅ​តែ​ប៉ុណ្ណោះ​។​ វា​មិន​ឆ្លុះ​បញ្ចាំង​ពី​ទិដ្ឋភាព​នៃ​ការ​វិនិយោគ​បរទេស​ទាំងមូល​របស់​កម្ពុជា​នោះ​ទេ​។​ អូ​ឌី​ស៊ី​ សូម​មិន​ធ្វើការ​អះអាង​ ឬ​ធានា​ ទោះជា​បាន​សម្តែង​ច្បាស់​ ឬ​មិន​ជាក់លាក់​ ជា​អង្គហេតុ​ ឬ​អង្គច្បាប់​ ពាក់ព័ន្ធ​ទៅ​នឹង​ភាព​ត្រឹមត្រូវ​ ពេញលេញ​ ឬ​ភាព​សម​ស្រប​នៃ​ទិន្នន័យ​ ស្នាដៃ​ ឬ​ឯកសារ​ដែល​មាន​ ឬ​ដែល​បាន​យក​មក​យោង​ជា​ឯកសារ​ ឬ​ដែល​បាន​ផ្តល់​ឲ្យ​។​</small>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="../node_modules/leaflet/dist/leaflet.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
+    <script type="text/javascript" src="../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="../node_modules/@drustack/leaflet.resetview/dist/L.Control.ResetView.min.js"></script>
+
+    <script type="text/javascript" src="../node_modules/d3/dist/d3.min.js"></script>
+    <script type="text/javascript" src="../node_modules/crossfilter2/crossfilter.min.js"></script>
+    <script type="text/javascript" src="../node_modules/dc/dist/dc.min.js"></script>
+    <script type="text/javascript" src="../node_modules/dc-tableview/build/dc-tableview-bs.js"></script>
+
+    <script type="text/javascript" src="../node_modules/dc.leaflet/dc.leaflet.min.js"></script>
+
+    <script type="text/javascript" src="../assets/js/map.js"></script>
+    <script type="text/javascript" src="../assets/js/charts.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+</body>
+
+</html>

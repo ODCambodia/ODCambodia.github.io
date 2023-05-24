@@ -1,3 +1,8 @@
+h2#project-info {
+  color: gray;
+  font-size: 1.7rem;
+}
+
 .timeline {
   position: relative;
   margin: 0 auto;
@@ -95,7 +100,11 @@
   width: 3px;
   left: 50%;
   background-color: #06323d;
-  top: 8rem;
+  top: 2%;
+}
+
+.footnote {
+  font-size: 13px;
 }
 
 @media (max-width: 800px) {

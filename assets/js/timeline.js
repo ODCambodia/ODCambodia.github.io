@@ -30,6 +30,25 @@ if (document.getElementById('events-timeline') != null) {
     .then(data => createTimeline(data.result.records, 'events-timeline'))
 }
 
+if (document.getElementById('projects-timeline') != null) {
+  const queryString = window.location.search;
+  
+  const urlParams = new URLSearchParams(queryString);
+
+  const resourceId = urlParams.get('resource_id');
+  const projectName = urlParams.get('project_name');
+  const companyName = urlParams.get('company_name');
+
+  projectInfo = document.getElementById('project-info');
+  projectInfo.innerHTML = projectName + ' | ' + companyName;
+
+  resourceUrl = baseApiUrl + '?resource_id=' + resourceId + '&limit=' + limit;
+
+  fetch(resourceUrl)
+    .then(response => response.json())
+    .then(data => createTimeline(data.result.records, 'projects-timeline'))
+}
+
 function createTimeline(data, timelineId) {
   let timelineList = document.createElement('ul');
 
@@ -38,11 +57,13 @@ function createTimeline(data, timelineId) {
 
     let element = '';
 
+    element += '<h3 class="text-center my-4"></h3>'
+
     element += '<div class="content">';
 
     if (timelineId == 'laws-timeline') {
       element += `<h4>${record.title}<a title="Download" target="_blank" class="btn btn-sm btn-secondary float-right" href="${record.resource_link}"><i class="bi bi-download"></i></a></h4>`;
-    } else if (timelineId == 'events-timeline') {
+    } else {
       element += `<h4>${record.title}</h4>`;
     }
 
@@ -50,15 +71,15 @@ function createTimeline(data, timelineId) {
     element += `<p class="text-center">${record.description}</p>`;
 
     if (record.reference_text != '') {
-      element += '<p class="font-italic text-right">' + display_footnote(record.reference_text, record.resource_link) + '</p>';
+      element += '<p class="font-italic text-right footnote">' + display_footnote(record.reference_text, record.resource_link) + '</p>';
     }
 
     if (record.reference_2) {
-      element += '<p class="font-italic text-right">' + display_footnote(record.reference_2, record.resource_link_2) + '</p>';
+      element += '<p class="font-italic text-right footnote">' + display_footnote(record.reference_2, record.resource_link_2) + '</p>';
     }
 
     if (record.reference_text_2) {
-      element += '<p class="font-italic text-right">' + display_footnote(record.reference_text_2, record.resource_link_2) + '</p>';
+      element += '<p class="font-italic text-right footnote">' + display_footnote(record.reference_text_2, record.resource_link_2) + '</p>';
     }
 
     element += '</div>';

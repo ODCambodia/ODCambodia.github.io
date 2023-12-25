@@ -63,6 +63,8 @@ function createTimeline(data, timelineId) {
 
     if (timelineId == 'laws-timeline') {
       element += `<h4>${record.title}<a title="Download" target="_blank" class="btn btn-sm btn-secondary float-right" href="${record.resource_link}"><i class="bi bi-download"></i></a></h4>`;
+    } else if (timelineId == 'projects-timline') {
+      element += '';
     } else {
       element += `<h4>${record.title}</h4>`;
     }

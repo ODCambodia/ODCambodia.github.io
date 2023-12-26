@@ -68,7 +68,7 @@ function createTimeline(data, timelineId) {
         element += `<h4>${record.title}</h4>`;
       }
     } else {
-      element += '';
+      element += '<h4></h4>';
     }
 
     element += '<div class="description">';
